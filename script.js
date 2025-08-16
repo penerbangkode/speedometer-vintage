@@ -33,9 +33,9 @@ function setSpeed(speed) {
     }
 
     if (speed < 100) {
-        elements.speed.left = '160px';
+        document.querySelector('.speed__wheel__inner').style.left = '160px';
     } else {
-        elements.speed.left = '149px';
+        document.querySelector('.speed__wheel__inner').style.left = '149px';
     }
 }
 
