@@ -20,6 +20,7 @@ function setEngine(state) {
  * @description Converts the speed value to the current speed mode and updates the display.
  */
 function setSpeed(speed) {
+    setPointer(speed * 2.236936); // Convert m/s to MPH for pointer
     switch(speedMode)
     {
         case 1: speed = elements.speed.innerText = `${Math.round(speed * 2.236936)}`; break; // MPH
@@ -155,6 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
         indicators: document.getElementById('indicators'),
         seatbelts: document.getElementById('seatbelts'),
         speedMode: document.querySelector('.speed__inner_speed_mode__text'),
-        pointer: document.querySelector('.pointer-img')
+        pointer: document.getElementById('pointer-img')
     };
 });
