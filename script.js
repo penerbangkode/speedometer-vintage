@@ -5,6 +5,8 @@ let leftBlinkingInterval = null;
 let leftBlinkActive = false;
 let rightBlinkingInterval = null;
 let rightBlinkActive = false;
+let hazardBlinkingInterval = null;
+let blinkState = false;
 
 const onOrOff = state => state ? 'On' : 'Off';
 
@@ -103,15 +105,38 @@ function setHeadlights(state) {
  */
 function setLeftIndicator(state) {
     indicators = (indicators & 0b10) | (state ? 0b01 : 0b00);
-    if (state) {
-        startLeftBlinking();
+
+    if ((indicators & 0b01) && (indicators & 0b10)) {
+        startHazardBlinking();
     } else {
-        stopLeftBlinking();
+        if (state) {
+            startLeftBlinking();
+        } else {
+            stopLeftBlinking();
+        }
     }
 }
 
+/**
+ * Sets the state of the right turn indicator and updates the display.
+ * @param {boolean} state - If true, turns the right indicator on; otherwise, turns it off.
+ */
+function setRightIndicator(state) {
+    indicators = (indicators & 0b01) | (state ? 0b10 : 0b00);
+
+    if ((indicators & 0b01) && (indicators & 0b10)) {
+        startHazardBlinking();
+    } else {
+        if (state) {
+            startRightBlinking();
+        } else {
+            stopRightBlinking();
+        }
+    }
+}
 
 function startLeftBlinking() {
+    stopHazardBlinking(); // Ensure hazard isn't running
     if (leftBlinkingInterval) return;
     leftBlinkingInterval = setInterval(() => {
         leftBlinkActive = !leftBlinkActive;
@@ -129,21 +154,8 @@ function stopLeftBlinking() {
     document.querySelector('.left-light.off').style.display = 'block';
 }
 
-
-/**
- * Sets the state of the right turn indicator and updates the display.
- * @param {boolean} state - If true, turns the right indicator on; otherwise, turns it off.
- */
-function setRightIndicator(state) {
-    indicators = (indicators & 0b01) | (state ? 0b10 : 0b00);
-    if (state) {
-        startRightBlinking();
-    } else {
-        stopRightBlinking();
-    }
-}
-
 function startRightBlinking() {
+    stopHazardBlinking(); // Ensure hazard isn't running
     if (rightBlinkingInterval) return;
     rightBlinkingInterval = setInterval(() => {
         rightBlinkActive = !rightBlinkActive;
@@ -157,6 +169,29 @@ function stopRightBlinking() {
     clearInterval(rightBlinkingInterval);
     rightBlinkingInterval = null;
     rightBlinkActive = false;
+    document.querySelector('.right-light.on').style.display  = 'none';
+    document.querySelector('.right-light.off').style.display = 'block';
+}
+
+function startHazardBlinking() {
+    stopLeftBlinking();
+    stopRightBlinking();
+    if (hazardBlinkingInterval) return;
+    hazardBlinkingInterval = setInterval(() => {
+        blinkState = !blinkState;
+        document.querySelector('.left-light.on').style.display  = blinkState ? 'block' : 'none';
+        document.querySelector('.left-light.off').style.display = blinkState ? 'none'  : 'block';
+        document.querySelector('.right-light.on').style.display  = blinkState ? 'block' : 'none';
+        document.querySelector('.right-light.off').style.display = blinkState ? 'none'  : 'block';
+    }, 500);
+}
+
+function stopHazardBlinking() {
+    if (!hazardBlinkingInterval) return;
+    clearInterval(hazardBlinkingInterval);
+    hazardBlinkingInterval = null;
+    document.querySelector('.left-light.on').style.display  = 'none';
+    document.querySelector('.left-light.off').style.display = 'block';
     document.querySelector('.right-light.on').style.display  = 'none';
     document.querySelector('.right-light.off').style.display = 'block';
 }
