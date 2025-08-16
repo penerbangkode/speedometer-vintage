@@ -108,6 +108,8 @@ function setLeftIndicator(state) {
 
     if ((indicators & 0b01) && (indicators & 0b10)) {
         startHazardBlinking();
+    } else if (indicators === 0) {
+        stopHazardBlinking();
     } else {
         if (state) {
             startLeftBlinking();
@@ -126,6 +128,8 @@ function setRightIndicator(state) {
 
     if ((indicators & 0b01) && (indicators & 0b10)) {
         startHazardBlinking();
+    }  else if (indicators === 0) {
+        stopHazardBlinking();
     } else {
         if (state) {
             startRightBlinking();
