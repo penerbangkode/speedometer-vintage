@@ -108,11 +108,14 @@ function setLeftIndicator(state) {
 
     if ((indicators & 0b01) && (indicators & 0b10)) {
         startHazardBlinking();
-    } else if (indicators === 0) {
+    } else if (state) {
         stopHazardBlinking();
+        startLeftBlinking();
     } else {
-        if (state) {
-            startLeftBlinking();
+        if (hazardBlinkingInterval && (indicators & 0b10)) {
+            // Hazard was running but now only right remains
+            stopHazardBlinking();
+            startRightBlinking();
         } else {
             stopLeftBlinking();
         }
@@ -128,11 +131,14 @@ function setRightIndicator(state) {
 
     if ((indicators & 0b01) && (indicators & 0b10)) {
         startHazardBlinking();
-    }  else if (indicators === 0) {
+    } else if (state) {
         stopHazardBlinking();
+        startRightBlinking();
     } else {
-        if (state) {
-            startRightBlinking();
+        if (hazardBlinkingInterval && (indicators & 0b01)) {
+            // Hazard was running but now only left remains
+            stopHazardBlinking();
+            startLeftBlinking();
         } else {
             stopRightBlinking();
         }
