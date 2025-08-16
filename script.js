@@ -34,7 +34,7 @@ function setSpeed(speed) {
  * @param {number} rpm - The RPM value to display. (0 to 1).
  */
 function setRPM(rpm) {
-    setPointer(rpm);
+    setPointer(rpm * 100);
 }
 
 /**
