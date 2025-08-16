@@ -1,6 +1,8 @@
 let elements = {};
 let speedMode = 1;
 let indicators = 0;
+let leftBlinkingInterval = null;
+let leftBlinkActive = false;
 
 const onOrOff = state => state ? 'On' : 'Off';
 
@@ -83,8 +85,32 @@ function setHeadlights(state) {
  */
 function setLeftIndicator(state) {
     indicators = (indicators & 0b10) | (state ? 0b01 : 0b00);
-    elements.indicators.innerText = `${indicators & 0b01 ? 'On' : 'Off'} / ${indicators & 0b10 ? 'On' : 'Off'}`;
+    if (state) {
+        startLeftBlinking();
+    } else {
+        stopLeftBlinking();
+    }
 }
+
+
+function startLeftBlinking() {
+    if (leftBlinkingInterval) return;
+    leftBlinkingInterval = setInterval(() => {
+        leftBlinkActive = !leftBlinkActive;
+        document.querySelector('.left-light.on').style.display  = leftBlinkActive ? 'block' : 'none';
+        document.querySelector('.left-light.off').style.display = leftBlinkActive ? 'none'  : 'block';
+    }, 500);
+}
+
+function stopLeftBlinking() {
+    if (!leftBlinkingInterval) return;
+    clearInterval(leftBlinkingInterval);
+    leftBlinkingInterval = null;
+    leftBlinkActive = false;
+    document.querySelector('.left-light.on').style.display  = 'none';
+    document.querySelector('.left-light.off').style.display = 'block';
+}
+
 
 /**
  * Sets the state of the right turn indicator and updates the display.

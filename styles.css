@@ -28,8 +28,8 @@
 
 .speed__wheel {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   border-radius: 50%;
   background: url('/bg.png') no-repeat center;
   background-size: contain;
@@ -39,34 +39,34 @@
   position: absolute;
   width: 150px;
   height:150px;
-  left: 135px;
-  top: 94px;
+  left: 149px;
+  top: 105px;
 }
 
 .speed__wheel__inner__center__text{
     font-family: 'AmericanCaptain', sans-serif; /* Use the custom font */
-    font-size: 29px;
+    font-size: 30px;
 }
 
 .speed__inner_speed_mode__text{
     font-family: 'AmericanCaptain', sans-serif; /* Use the custom font */
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .speed__inner_speed_mode {
   position: absolute;
   width: 150px;
   height:150px;
-  left: 140px;
-  top: 194px;
+  left: 154px;
+  top: 213px;
 }
 
 .left-light{
-  width: 8px;
-  height: 8px;
-  position: absolute;
-  top: 197px;
-  left: 124px;
+    width: 17px;
+    height: 15px;
+    position: absolute;
+    top: 211px;
+    left: 133px;
 }
 
 .speed__tick {
@@ -180,8 +180,8 @@
   height: 325px;
   background: url('/pointer.png') no-repeat center;
   background-size: contain;
-  top: -16px;
-  left: -12px;
+  top: 0px;
+  left: 4px;
   border-radius: 50%;
   transform: rotate(-137deg);
   transform-origin: 50% 50%;
@@ -230,8 +230,8 @@
 
 .fuel-tank {
   width: 4px;
-  height: 38px;
-  border: 1px solid black;
+  height: 40px;
+  border: 0.1px solid black;
   display: flex;
   flex-direction: column-reverse;
   border-radius:20px;
@@ -240,8 +240,8 @@
   -ms-border-radius:20px;
   -o-border-radius:20px;
   position: absolute;
-  top: 139px;
-  left: 201px;
+  top: 153px;
+  left: 221px;
 }
 
 .fuel-level {
@@ -257,8 +257,8 @@
 
 .engine-status {
   width: 4px;
-  height: 38px;
-  border: 1px solid black;
+  height: 40px;
+  border: 0.1px solid black;
   display: flex;
   flex-direction: column-reverse;
   border-radius:20px;
@@ -267,8 +267,8 @@
   -ms-border-radius:20px;
   -o-border-radius:20px;
   position: absolute;
-  top: 139px;
-  left: 98px;
+  top: 154px;
+  left: 108px;
 }
 
 .engine-level {
@@ -283,17 +283,17 @@
 }
 
 .fuel-img {
-    width: 7px;
+    width: 8px;
     height: 9px;
     position: absolute;
-    top: 127px;
-    left: 200px;
+    top: 140px;
+    left: 220px;
 }
 
 .car-img {
-    width: 8px;
+    width: 9px;
     height: 8px;
     position: absolute;
-    top: 127px;
-    left: 96px;
+    top: 140px;
+    left: 106px;
 }
