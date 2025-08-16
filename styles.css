@@ -28,8 +28,8 @@
 
 .speed__wheel {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: url('/bg.png') no-repeat center;
   background-size: contain;
