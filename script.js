@@ -24,7 +24,8 @@ function setEngine(state) {
  * @description Converts the speed value to the current speed mode and updates the display.
  */
 function setSpeed(speed) {
-    setPointer(speed * 2.236936); // Convert m/s to MPH for pointer
+    speedFinal = speed * 2.236936;
+    setPointer(speedFinal); // Convert m/s to MPH for pointer
     switch(speedMode)
     {
         case 1: speed = elements.speed.innerText = `${Math.round(speed * 2.236936)}`; break; // MPH
@@ -32,8 +33,10 @@ function setSpeed(speed) {
         default: speed = elements.speed.innerText = `${Math.round(speed * 3.6)}`; // KMH
     }
 
-    if (speed < 100) {
+    if (speedFinal < 10) {
         document.querySelector('.speed__wheel__inner').style.left = '160px';
+    } else if (speedFinal > 10 && speedFinal < 100) {
+        document.querySelector('.speed__wheel__inner').style.left = '155px';
     } else {
         document.querySelector('.speed__wheel__inner').style.left = '149px';
     }
