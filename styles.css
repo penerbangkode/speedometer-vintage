@@ -69,6 +69,30 @@
     left: 133px;
 }
 
+.right-light{
+    width: 16px;
+    height: 15px;
+    position: absolute;
+    top: 211px;
+    left: 181px;
+}
+
+.seatbelt {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 247px;
+    left: 112px;
+}
+
+.headlight-c {
+    width: 24px;
+    height: 14px;
+    position: absolute;
+    top: 252px;
+    left: 197px;
+}
+
 .speed__tick {
   display: flex;
   gap: 1px;

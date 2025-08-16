@@ -3,6 +3,8 @@ let speedMode = 1;
 let indicators = 0;
 let leftBlinkingInterval = null;
 let leftBlinkActive = false;
+let rightBlinkingInterval = null;
+let rightBlinkActive = false;
 
 const onOrOff = state => state ? 'On' : 'Off';
 
@@ -71,11 +73,18 @@ function setGear(gear) {
  * @param {number} state - The headlight state (0: Off, 1: On, 2: High Beam).
  */
 function setHeadlights(state) {
-    switch(state)
-    {
-        case 1: elements.headlights.innerText = 'On'; break;
-        case 2: elements.headlights.innerText = 'High Beam'; break;
-        default: elements.headlights.innerText = 'Off';
+    if (state === 1 ){
+        document.querySelector('.headlight-one').style.display  = 'block';
+        document.querySelector('.headlight').style.display = 'none';
+        document.querySelector('.headlight-second').style.display = 'none';
+    } else if (state === 2) {
+        document.querySelector('.headlight-one').style.display  = 'none';
+        document.querySelector('.headlight').style.display = 'none';
+        document.querySelector('.headlight-second').style.display = 'block';
+    } else {
+        document.querySelector('.headlight-one').style.display  = 'none';
+        document.querySelector('.headlight').style.display = 'block';
+        document.querySelector('.headlight-second').style.display = 'none';
     }
 }
 
@@ -118,7 +127,29 @@ function stopLeftBlinking() {
  */
 function setRightIndicator(state) {
     indicators = (indicators & 0b01) | (state ? 0b10 : 0b00);
-    elements.indicators.innerText = `${indicators & 0b01 ? 'On' : 'Off'} / ${indicators & 0b10 ? 'On' : 'Off'}`;
+    if (state) {
+        startRightBlinking();
+    } else {
+        stopRightBlinking();
+    }
+}
+
+function startRightBlinking() {
+    if (rightBlinkingInterval) return;
+    rightBlinkingInterval = setInterval(() => {
+        rightBlinkActive = !rightBlinkActive;
+        document.querySelector('.right-light.on').style.display  = rightBlinkActive ? 'block' : 'none';
+        document.querySelector('.right-light.off').style.display = rightBlinkActive ? 'none'  : 'block';
+    }, 500);
+}
+
+function stopRightBlinking() {
+    if (!rightBlinkingInterval) return;
+    clearInterval(rightBlinkingInterval);
+    rightBlinkingInterval = null;
+    rightBlinkActive = false;
+    document.querySelector('.right-light.on').style.display  = 'none';
+    document.querySelector('.right-light.off').style.display = 'block';
 }
 
 /**
@@ -126,7 +157,8 @@ function setRightIndicator(state) {
  * @param {boolean} state - If true, indicates seatbelts are fastened; otherwise, indicates they are not.
  */
 function setSeatbelts(state) {
-    elements.seatbelts.innerText = onOrOff(state);
+    document.querySelector('.seatbelt.on').style.display  = state ? 'block' : 'none';
+    document.querySelector('.seatbelt.off').style.display = state ? 'none'  : 'block';
 }
 
 /**
