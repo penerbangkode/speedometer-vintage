@@ -31,6 +31,12 @@ function setSpeed(speed) {
         case 2: speed = elements.speed.innerText = `${Math.round(speed * 1.943844)}`; break; // Knots
         default: speed = elements.speed.innerText = `${Math.round(speed * 3.6)}`; // KMH
     }
+
+    if (speed < 100) {
+        elements.speed.left = '160px';
+    } else {
+        elements.speed.left = '149px';
+    }
 }
 
 /**
