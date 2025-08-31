@@ -48,8 +48,8 @@
   position: absolute;
   width: 150px;
   height:150px;
-  left: 146px;
-  top: 102px;
+  left: 139px;
+  top: 98px;
 }
 
 .speed__wheel__inner__center__text{
@@ -59,7 +59,7 @@
 
 .speed__inner_speed_mode__text{
     font-family: 'AmericanCaptain', sans-serif; /* Use the custom font */
-    font-size: 21px;
+    font-size: 26px;
 }
 
 .speed__inner_speed_mode {
@@ -87,19 +87,19 @@
 }
 
 .seatbelt {
-    width: 24px;
-    height: 24px;
+    width: 49px;
+    height: 21px;
     position: absolute;
-    top: 247px;
-    left: 112px;
+    top: 249px;
+    left: 102px;
 }
 
 .headlight-c {
-    width: 24px;
-    height: 14px;
+    width: 35px;
+    height: 25px;
     position: absolute;
-    top: 252px;
-    left: 197px;
+    top: 247px;
+    left: 193px;
 }
 
 .speed__tick {
