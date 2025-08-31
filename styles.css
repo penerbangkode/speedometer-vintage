@@ -35,46 +35,55 @@
   background-size: contain;
 }
 
+.speed__lens {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: url('/lens.png') no-repeat center;
+  background-size: contain;
+}
+
 .speed__wheel__inner {
   position: absolute;
   width: 150px;
   height:150px;
-  left: 160px;
-  top: 100px;
+  left: 146px;
+  top: 102px;
 }
 
 .speed__wheel__inner__center__text{
     font-family: 'AmericanCaptain', sans-serif; /* Use the custom font */
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .speed__inner_speed_mode__text{
     font-family: 'AmericanCaptain', sans-serif; /* Use the custom font */
-    font-size: 13px;
+    font-size: 21px;
 }
 
 .speed__inner_speed_mode {
   position: absolute;
   width: 150px;
   height:150px;
-  left: 154px;
-  top: 213px;
+  left: 161px;
+  top: 206px;
 }
 
 .left-light{
-    width: 17px;
-    height: 15px;
+    width: 27px;
+    height: 22px;
     position: absolute;
-    top: 211px;
-    left: 133px;
+    top: 204px;
+    left: 128px;
 }
 
 .right-light{
-    width: 16px;
-    height: 15px;
+    width: 28px;
+    height: 22px;
     position: absolute;
-    top: 211px;
-    left: 181px;
+    top: 204px;
+    left: 174px;
 }
 
 .seatbelt {
@@ -253,8 +262,8 @@
 } */
 
 .fuel-tank {
-  width: 4px;
-  height: 40px;
+  width: 7px;
+  height: 54px;
   border: 0.1px solid black;
   display: flex;
   flex-direction: column-reverse;
@@ -264,8 +273,8 @@
   -ms-border-radius:20px;
   -o-border-radius:20px;
   position: absolute;
-  top: 153px;
-  left: 221px;
+  top: 144px;
+  left: 210px;
 }
 
 .fuel-level {
@@ -280,8 +289,8 @@
 }
 
 .engine-status {
-  width: 4px;
-  height: 40px;
+  width: 7px;
+  height: 54px;
   border: 0.1px solid black;
   display: flex;
   flex-direction: column-reverse;
@@ -291,8 +300,8 @@
   -ms-border-radius:20px;
   -o-border-radius:20px;
   position: absolute;
-  top: 154px;
-  left: 108px;
+  top: 144px;
+  left: 113px;
 }
 
 .engine-level {
@@ -307,17 +316,17 @@
 }
 
 .fuel-img {
-    width: 8px;
-    height: 9px;
+    width: 11px;
+    height: 13px;
     position: absolute;
-    top: 140px;
-    left: 220px;
+    top: 122px;
+    left: 209px;
 }
 
 .car-img {
-    width: 9px;
-    height: 8px;
+    width: 14px;
+    height: 12px;
     position: absolute;
-    top: 140px;
-    left: 106px;
+    top: 123px;
+    left: 110px;
 }

@@ -219,15 +219,15 @@ function setSeatbelts(state) {
  * Sets the speed display mode and updates the speed unit display.
  * @param {number} mode - The speed mode to set (0: KMH, 1: MPH, 2: Knots).
  */
-function setSpeedMode(mode) {
-    speedMode = mode;
-    switch(mode)
-    {
-        case 1: elements.speedMode.innerText = 'M/PH'; break;
-        case 2: elements.speedMode.innerText = 'Knots'; break;
-        default: elements.speedMode.innerText = 'KMH';
-    }
-}
+// function setSpeedMode(mode) {
+//     speedMode = mode;
+//     switch(mode)
+//     {
+//         case 1: elements.speedMode.innerText = 'M/PH'; break;
+//         case 2: elements.speedMode.innerText = 'Knots'; break;
+//         default: elements.speedMode.innerText = 'KMH';
+//     }
+// }
 
 function mphToDeg(mph) {
     if (mph <= 140) {
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headlights: document.getElementById('headlights'),
         indicators: document.getElementById('indicators'),
         seatbelts: document.getElementById('seatbelts'),
-        speedMode: document.querySelector('.speed__inner_speed_mode__text'),
+        gear: document.querySelector('.speed__inner_speed_mode__text'),
         pointer: document.getElementById('pointer-img')
     };
 });
