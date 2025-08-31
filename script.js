@@ -76,6 +76,9 @@ function setHealth(health) {
  * @param {number} gear - The current gear to display. 0 represents neutral/reverse.
  */
 function setGear(gear) {
+    if (gear === 0) {
+        gear = 'R';
+    }
     elements.gear.innerText = String(gear);
 }
 
