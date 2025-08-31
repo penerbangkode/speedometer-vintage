@@ -40,7 +40,7 @@ function setSpeed(speed) {
     } else if (speedFinal > 10 && speedFinal < 100) {
         document.querySelector('.speed__wheel__inner').style.left = '155px';
     } else {
-        document.querySelector('.speed__wheel__inner').style.left = '142px';
+        document.querySelector('.speed__wheel__inner').style.left = '146px';
     }
 }
 
